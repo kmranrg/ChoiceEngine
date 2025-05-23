@@ -333,14 +333,14 @@ footer {
         width: 85%; /* Adjust width */
         box-sizing: border-box;
         /* *** UPDATED: Reduced shadow *** */
-        text-shadow: 0 0 8px var(--secondary-neon);
+        text-shadow: 0 0 5px var(--secondary-neon);
     }
 
     .spinner-column .spinner-title {
         font-size: 1.3em; /* Smaller title font */
         margin-bottom: 30px;
         /* *** UPDATED: Reduced shadow *** */
-        text-shadow: 0 0 5px var(--primary-neon);
+        text-shadow: 0 0 1px var(--primary-neon);
     }
 
     .input-column {
@@ -354,7 +354,7 @@ footer {
 
     .input-column h2 {
          /* *** ADDED: Reduced shadow *** */
-        text-shadow: 0 0 5px var(--secondary-neon);
+        text-shadow: 0 0 1px var(--secondary-neon);
     }
 
     .input-content {
