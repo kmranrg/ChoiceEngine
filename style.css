@@ -1,0 +1,274 @@
+:root {
+    --bg-color: #1a1a2e;
+    --primary-neon: #00ffff;
+    --secondary-neon: #e040fb;
+    --text-color: #e0e0e0;
+    --border-color: #4a4a8a;
+    --spinner-bg: #16213e;
+    --font-pixel: 'Press Start 2P', cursive;
+    --font-tech: 'Orbitron', sans-serif;
+    --item-height: 60px; /* Height of each word item */
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-tech);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow: hidden; /* Prevent body scroll */
+    padding-bottom: 40px; /* Add space for footer */
+}
+
+.container {
+    display: flex;
+    height: calc(100vh - 40px); /* Adjust height for footer */
+    width: 100vw;
+}
+
+/* Spinner Column (80%) */
+.spinner-column {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #2a2a4e 0%, var(--bg-color) 70%);
+    position: relative;
+}
+
+.spinner-container {
+    height: calc(var(--item-height) * 3); /* Ensure height is exactly 3 items */
+    width: 70%;
+    max-width: 600px;
+    background-color: var(--spinner-bg);
+    border: 3px solid var(--primary-neon);
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 25px var(--primary-neon), inset 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.spinner {
+    transition: transform 4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.spinner-item {
+    height: var(--item-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* *** UPDATED: Slightly smaller font size *** */
+    font-size: 1.6em;
+    font-family: var(--font-pixel);
+    color: var(--text-color);
+    text-transform: uppercase;
+    border-bottom: 1px dashed var(--border-color);
+    opacity: 0.6; /* Default opacity */
+    transition: opacity 0.5s ease;
+    /* *** ADDED: Ensure border is inside the height *** */
+    box-sizing: border-box;
+    /* *** ADDED: Ensure text doesn't wrap and push height *** */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 10px; /* Add some padding if needed, won't affect height */
+}
+
+.spinner-item:last-child {
+    border-bottom: none;
+}
+
+/* Style for the item when it's near the center */
+.spinner-item.active {
+    opacity: 1;
+    color: var(--primary-neon);
+}
+
+/* New Horizontal Pointer */
+.spinner-pointer-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 3px;
+    background-color: var(--secondary-neon);
+    box-shadow: 0 0 10px var(--secondary-neon);
+    z-index: 6;
+}
+
+/* Overlays for fade effect (Adjusted height significantly) */
+.spinner-overlay-top,
+.spinner-overlay-bottom {
+    position: absolute;
+    left: 0;
+    right: 0;
+    /* *** UPDATED: Reduced height to show more *** */
+    height: 33.33%;
+    z-index: 5;
+    pointer-events: none; /* Allow clicks through if needed */
+}
+
+.spinner-overlay-top {
+    top: 0;
+    /* *** UPDATED: Softer gradient, mostly transparent *** */
+    background: linear-gradient(to bottom, var(--spinner-bg) 30%, transparent 100%);
+}
+
+.spinner-overlay-bottom {
+    bottom: 0;
+    /* *** UPDATED: Softer gradient, mostly transparent *** */
+    background: linear-gradient(to top, var(--spinner-bg) 30%, transparent 100%);
+}
+
+
+#result-display {
+    margin-top: 50px;
+    font-size: 3em;
+    font-family: var(--font-pixel);
+    color: var(--secondary-neon);
+    text-shadow: 0 0 15px var(--secondary-neon);
+    padding: 20px 40px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 2px solid var(--secondary-neon);
+    border-radius: 10px;
+    min-height: 1.5em;
+    text-align: center;
+}
+
+/* Input Column (20%) */
+.input-column {
+    width: 20%;
+    padding: 30px;
+    background-color: #0f1020;
+    border-left: 5px solid var(--secondary-neon);
+    box-shadow: -10px 0 25px rgba(224, 64, 251, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.input-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-column h2 {
+    font-family: var(--font-pixel);
+    color: var(--secondary-neon);
+    text-shadow: 0 0 8px var(--secondary-neon);
+    margin-bottom: 40px;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.input-column label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--primary-neon);
+    font-size: 0.9em;
+    text-align: center;
+}
+
+textarea {
+    width: 90%;
+    background-color: #1a1a2e;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-color);
+    padding: 15px;
+    font-family: var(--font-tech);
+    font-size: 1em;
+    margin-bottom: 30px;
+    resize: vertical;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-neon);
+    box-shadow: 0 0 10px var(--primary-neon);
+}
+
+/* Spin Button */
+#spin-button {
+    padding: 20px 40px;
+    background-color: transparent;
+    border: 3px solid var(--primary-neon);
+    color: var(--primary-neon);
+    font-family: var(--font-pixel);
+    font-size: 1.5em;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease, box-shadow 0.3s ease;
+    text-shadow: 0 0 5px var(--primary-neon);
+    z-index: 1; /* Ensure it's above glow */
+}
+#spin-button:hover {
+    color: var(--bg-color);
+    box-shadow: 0 0 20px var(--primary-neon);
+}
+#spin-button .button-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: var(--primary-neon);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+    z-index: -1;
+    opacity: 0;
+}
+#spin-button:hover .button-glow {
+    width: 250%;
+    height: 250%;
+    opacity: 1;
+}
+#spin-button .button-text {
+    position: relative;
+    z-index: 2;
+}
+#spin-button:disabled {
+    cursor: not-allowed;
+    border-color: var(--border-color);
+    color: var(--border-color);
+    text-shadow: none;
+}
+#spin-button:disabled:hover .button-glow {
+    width: 0;
+    height: 0;
+}
+
+/* Footer Styling */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0f1020;
+    color: var(--border-color);
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.8em;
+    font-family: var(--font-tech);
+    border-top: 1px solid var(--border-color);
+    z-index: 100;
+}
+
+/* Spinner Title */
+.spinner-column .spinner-title {
+    font-family: var(--font-pixel);
+    color: var(--primary-neon);
+    text-shadow: 0 0 8px var(--primary-neon);
+    /* *** UPDATED: Increased margin-bottom *** */
+    margin-bottom: 70px;
+    font-size: 1.5em;
+    text-align: center;
+    text-transform: uppercase;
+}

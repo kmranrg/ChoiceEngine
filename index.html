@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Spin Wheel</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="spinner-column">
+            <h2 class="spinner-title">// Choice Engine //</h2>
+            <div class="spinner-container">
+                <div class="spinner-overlay-top"></div>
+                <div class="spinner-pointer-line"></div>
+                <div class="spinner" id="spinner">
+                    </div>
+                <div class="spinner-overlay-bottom"></div>
+            </div>
+            <div id="result-display">?</div>
+        </div>
+
+        <div class="input-column">
+            <div class="input-content">
+                <h2>// OPTIONS //</h2>
+                <label for="word-input">Enter Words</label>
+                <textarea id="word-input" rows="10" placeholder="Word 1
+Word 2
+Word 3
+Word 4
+Word 5"></textarea>
+                <button id="spin-button">
+                    <span class="button-text">SPIN!</span>
+                    <span class="button-glow"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        Designed and Developed by <a href="https://kmranrg.com" target="_blank" style="text-decoration: none; color: #930aac;">Kumar Anurag</a>.
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
