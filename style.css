@@ -272,3 +272,104 @@ footer {
     text-align: center;
     text-transform: uppercase;
 }
+
+/* ============================ */
+/* == Mobile Responsiveness == */
+/* ============================ */
+
+@media (max-width: 800px) { /* Breakpoint for tablets and phones */
+
+    body {
+        overflow-y: auto; /* Allow vertical scrolling */
+        padding-bottom: 60px; /* Add padding at the bottom to ensure footer is seen */
+    }
+
+    .container {
+        flex-direction: column; /* Stack columns vertically */
+        height: auto; /* Let height grow with content */
+    }
+
+    .spinner-column,
+    .input-column {
+        width: 100%; /* Make each column take full width */
+        box-sizing: border-box; /* Ensure padding doesn't add to width */
+    }
+
+    .spinner-column {
+        padding: 40px 15px 30px 15px; /* Adjust padding */
+        height: auto; /* Let height adjust */
+    }
+
+    .spinner-container {
+        width: 90%; /* Make spinner slightly narrower */
+        max-width: 450px; /* Max-width for very wide mobile */
+    }
+
+    .spinner-item {
+        font-size: 1.4em; /* Slightly smaller font for spinner items */
+    }
+
+    #result-display {
+        font-size: 2.5em; /* Smaller result font */
+        padding: 15px 20px;
+        margin-top: 40px;
+        width: 85%; /* Adjust width */
+        box-sizing: border-box;
+    }
+
+    .spinner-column .spinner-title {
+        font-size: 1.3em; /* Smaller title font */
+        margin-bottom: 30px;
+    }
+
+    .input-column {
+        border-left: none; /* Remove the side border */
+        border-top: 4px solid var(--secondary-neon); /* Add a top border */
+        box-shadow: none; /* Remove the side shadow */
+        padding: 40px 15px; /* Adjust padding */
+        justify-content: flex-start; /* Align content to the top */
+        min-height: 400px; /* Ensure it has some height */
+    }
+
+    .input-content {
+        padding-bottom: 20px;
+    }
+
+    textarea {
+        width: 90%;
+        rows: 7; /* Reduce rows a bit */
+    }
+
+    #spin-button {
+        font-size: 1.4em;
+        padding: 18px 35px;
+    }
+
+    footer {
+        position: relative; /* Make footer flow with content */
+        margin-top: 30px; /* Add space above it */
+        padding-bottom: 15px;
+    }
+}
+
+/* Optional: Further adjustments for very small screens */
+@media (max-width: 480px) {
+    .spinner-item {
+        font-size: 1.2em; /* Even smaller font */
+    }
+
+    #result-display {
+        font-size: 2em;
+    }
+
+    .spinner-column .spinner-title {
+        font-size: 1.1em;
+    }
+     #spin-button {
+        font-size: 1.2em;
+        padding: 15px 30px;
+    }
+     textarea {
+        rows: 5;
+     }
+}
