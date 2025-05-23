@@ -279,14 +279,24 @@ footer {
 
 @media (max-width: 800px) { /* Breakpoint for tablets and phones */
 
+    /* *** NEW: Ensure full height and set up flex for sticky footer *** */
+    html {
+        height: 100%;
+    }
+
     body {
+        display: flex; /* Enable Flexbox */
+        flex-direction: column; /* Stack vertically */
+        min-height: 100vh; /* Ensure body is at least full screen height */
         overflow-y: auto; /* Allow vertical scrolling */
-        padding-bottom: 60px; /* Add padding at the bottom to ensure footer is seen */
+        padding-bottom: 0; /* *** CHANGED: Remove body padding *** */
     }
 
     .container {
         flex-direction: column; /* Stack columns vertically */
         height: auto; /* Let height grow with content */
+        /* *** NEW: Make container grow to push footer down *** */
+        flex: 1 0 auto;
     }
 
     .spinner-column,
@@ -303,6 +313,13 @@ footer {
     .spinner-container {
         width: 90%; /* Make spinner slightly narrower */
         max-width: 450px; /* Max-width for very wide mobile */
+        /* *** UPDATED: Reduced shadow *** */
+        box-shadow: 0 0 15px var(--primary-neon), inset 0 0 8px rgba(0, 255, 255, 0.2);
+    }
+
+    /* *** NEW: Reduced pointer shadow *** */
+    .spinner-pointer-line {
+        box-shadow: 0 0 5px var(--secondary-neon);
     }
 
     .spinner-item {
@@ -315,11 +332,15 @@ footer {
         margin-top: 40px;
         width: 85%; /* Adjust width */
         box-sizing: border-box;
+        /* *** UPDATED: Reduced shadow *** */
+        text-shadow: 0 0 8px var(--secondary-neon);
     }
 
     .spinner-column .spinner-title {
         font-size: 1.3em; /* Smaller title font */
         margin-bottom: 30px;
+        /* *** UPDATED: Reduced shadow *** */
+        text-shadow: 0 0 5px var(--primary-neon);
     }
 
     .input-column {
@@ -328,7 +349,12 @@ footer {
         box-shadow: none; /* Remove the side shadow */
         padding: 40px 15px; /* Adjust padding */
         justify-content: flex-start; /* Align content to the top */
-        min-height: 400px; /* Ensure it has some height */
+        min-height: auto; /* *** CHANGED: Let height be auto *** */
+    }
+
+    .input-column h2 {
+         /* *** ADDED: Reduced shadow *** */
+        text-shadow: 0 0 5px var(--secondary-neon);
     }
 
     .input-content {
@@ -340,15 +366,29 @@ footer {
         rows: 7; /* Reduce rows a bit */
     }
 
+    /* *** NEW: Reduced shadow on focus *** */
+    textarea:focus {
+        box-shadow: 0 0 6px var(--primary-neon);
+    }
+
     #spin-button {
         font-size: 1.4em;
         padding: 18px 35px;
+        /* *** UPDATED: Reduced shadow *** */
+        text-shadow: 0 0 3px var(--primary-neon);
+    }
+
+    /* *** NEW: Reduced shadow on hover *** */
+    #spin-button:hover {
+        box-shadow: 0 0 12px var(--primary-neon);
     }
 
     footer {
         position: relative; /* Make footer flow with content */
-        margin-top: 30px; /* Add space above it */
-        padding-bottom: 15px;
+        /* *** CHANGED: Use padding instead of margin, ensure it doesn't shrink *** */
+        margin-top: auto; /* This helps push it down with flex */
+        padding: 20px 0 15px 0; /* Add space *above* and within footer */
+        flex-shrink: 0; /* Prevent footer from shrinking */
     }
 }
 
