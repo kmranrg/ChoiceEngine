@@ -1,4 +1,4 @@
-# 🎮 ChoiceEngine - Vertical Spinning Word Selector 🎮
+# 🎮 ChoiceEngine
 
 **ChoiceEngine** is a fun, interactive web-based tool that lets you input a list of words and then 'spin' to get a random selection. It features a unique vertical spinning animation (like a slot machine or retro ticker) and a cool, neon gaming-inspired theme.
 
