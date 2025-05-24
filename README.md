@@ -56,11 +56,11 @@ If you want to run or modify this project on your local machine:
 
 1.  **Clone the Repository:**
     ```bash
-    git clone [https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git)
+    git clone https://github.com/kmranrg/ChoiceEngine.git
     ```
 2.  **Navigate to the Directory:**
     ```bash
-    cd YOUR_REPOSITORY_NAME
+    cd ChoiceEngine
     ```
 3.  **Open `index.html`:** Simply open the `index.html` file in your favorite web browser.
 
