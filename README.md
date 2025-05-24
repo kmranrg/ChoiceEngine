@@ -13,7 +13,7 @@
 
 Experience ChoiceEngine live on GitHub Pages:
 
-**[➡️ Launch ChoiceEngine Here! ⬅️](https://kmranrg.github.io/ChoiceEngine/)**
+**[Launch ChoiceEngine Here!](https://kmranrg.github.io/ChoiceEngine/)**
 
 ---
 
